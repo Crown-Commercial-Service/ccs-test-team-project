@@ -1,4 +1,7 @@
 language: java
+key : DISPLAY
+  value:0:0
+
 before_install:
   - mvn install -DskipTests=false -Dmaven.javadoc.skip=false -B -V
   - CHROME_MAIN_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`

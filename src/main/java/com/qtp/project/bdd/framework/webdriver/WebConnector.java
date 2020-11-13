@@ -38,6 +38,15 @@ public class WebConnector {
         } else if (browser.equals("Firefox")) {
           //  System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver");
             driver = new FirefoxDriver();
+        } else if (browser.equals("Chrome_headless")) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--disable-extensions");
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.setExperimentalOption("useAutomationExtension", false);
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver(options);
         }
         driver.manage().window().setSize(new Dimension(1260, 1545));
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
