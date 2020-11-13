@@ -56,7 +56,10 @@ public class WebConnector {
     }
 
     public void closeConnection() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 
 
