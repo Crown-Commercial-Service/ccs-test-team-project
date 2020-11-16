@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources",
-        glue = {"com.qtp.project.bdd.framework.stepdefinitions"},
-        tags = "@searchFramework or @axe"
+        glue = {"com.qtp.project.bdd.framework.stepdefinitions"}
+    //    tags = "@searchFramework or @axe"
         )
 public class TestRunner {
 
