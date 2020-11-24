@@ -38,15 +38,20 @@
             <version>3.141.59</version>
         </dependency>
         <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>4.1.7</version>
+            <groupId>de.monochromata.cucumber</groupId>
+            <artifactId>reporting-plugin</artifactId>
+            <version>4.0.84</version>
         </dependency>
         <dependency>
             <groupId>com.deque</groupId>
             <artifactId>axe-selenium</artifactId>
             <version>3.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.assertthat</groupId>
+            <artifactId>selenium-shutterbug</artifactId>
+            <version>0.8</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>

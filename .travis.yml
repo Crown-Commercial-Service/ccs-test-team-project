@@ -10,3 +10,5 @@ before_install:
   - unzip chromedriver_linux64.zip -d ~/bin
 #script:
 #  - mvn test
+#script:
+# - mvn test -Dbase.url=https://www.crowncommercial.gov.uk/ -Dcucumber.filter.tags=@axe

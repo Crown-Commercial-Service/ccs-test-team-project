@@ -19,8 +19,8 @@ public class AgreementsPageSteps {
     @Then("I am on {string} page")
     public void i_am_on_page(String string) {
         String currentURL = agreementsPage.getCurrentURL();
-        //Assert.assertEquals(currentURL.contains(string),
-          //      "Expected page is not displayed : Expected " + string + " Actual " + currentURL);
+        Assert.assertEquals(currentURL.contains(string),
+                "Expected page is not displayed : Expected " + string + " Actual " + currentURL);
     }
 
     @And("I search {string} Framework")

@@ -1,20 +1,20 @@
-Feature: Verify Search Frameworks- Energy and cctv
+Feature: Verify Search  - Finance and legal
 
-  @Energy
-  Scenario: Verify Search Energy Frameworks
+  @Finance
+  Scenario: Verify Search Finance Frameworks
     Given I open browser
     And  I am on CCS homepage
     When I click Search Framework
     Then I am on 'agreements' page
-    When I search 'Energy' Framework
+    When I search 'finance' Framework
 
-  @cctv
-  Scenario: Verify Search cctv Frameworks
+  @legal
+  Scenario: Verify Search legal Frameworks
     Given I open browser
     And  I am on CCS homepage
     When I click Search Framework
     Then I am on 'agreements' page
-    When I search 'cctv' Framework
+    When I search 'legal' Framework
 
 
 

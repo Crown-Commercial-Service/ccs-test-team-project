@@ -10,9 +10,7 @@ import io.cucumber.java.en.Then;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
-
 import java.net.URL;
-
 import static org.junit.Assert.assertTrue;
 
 
@@ -26,14 +24,15 @@ public class GenericStpes {
     }
 
     @Before
-    public void before(Scenario s) {
+    public void before(Scenario scenario) {
         System.out.println("before..");
-        connector.initReports(s.getName());
+        connector.scenario = scenario;
     }
 
     @After
     public void CloseBrowser() {
-       connector.closeConnection();
+        connector.takeSnapShot();
+        connector.closeConnection();
     }
 
     @Given("I open browser")

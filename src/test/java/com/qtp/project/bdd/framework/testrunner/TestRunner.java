@@ -9,7 +9,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources",
         glue = {"com.qtp.project.bdd.framework.stepdefinitions"},
-        tags = "@searchFramework or @axe"
+        plugin = { "de.monochromata.cucumber.report.PrettyReports:target/cucumber" }
+     //   tags = "@Energy or @axe or @legal or @cctv"
+        //mvn test -Dcucumber.filter.tags="@cctv"
         )
 public class TestRunner {
 

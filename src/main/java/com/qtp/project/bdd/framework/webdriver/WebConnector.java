@@ -1,25 +1,31 @@
 package com.qtp.project.bdd.framework.webdriver;
 
 import io.cucumber.java.Scenario;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import com.assertthat.selenium_shutterbug.core.PageSnapshot;
+import com.assertthat.selenium_shutterbug.core.Shutterbug;
+import com.assertthat.selenium_shutterbug.utils.web.ScrollStrategy;
+
+import javax.imageio.ImageIO;
 
 public class WebConnector {
 
     public WebDriver driver;
     public Properties properties;
     public Scenario scenario;
-//    ExtentReporter reporter;
-//    ExtentTest extentTest;
 
     public WebConnector() throws IOException {
         properties = new Properties();
@@ -56,10 +62,6 @@ public class WebConnector {
         driver.get(url);
     }
 
-    public void initReports(String scenario) {
-        //TODO
-    }
-
     public void waitForPageLoad() throws InterruptedException {
         Thread.sleep(600);
     }
@@ -68,6 +70,25 @@ public class WebConnector {
         if (driver != null) {
             driver.quit();
             driver = null;
+        }
+    }
+
+    public void takeSnapShot() {
+        if (scenario.isFailed()) {
+            //Code to take full page screenshot
+            ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
+            scenario.log("URL - " + driver.getCurrentUrl());
+            PageSnapshot snapshot = Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS, true);
+            ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,0)");
+
+            try {
+                ImageIO.write(snapshot.getImage(), "png", imageStream);
+                imageStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            byte[] source = imageStream.toByteArray();
+            scenario.attach(source, "image/png", scenario.getName());
         }
     }
 
