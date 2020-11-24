@@ -1,6 +1,6 @@
 Feature: axe tests
 
-  @axe
+  @axe @reg
   Scenario: Verify axe
     Given I open browser
     When I am on CCS homepage
