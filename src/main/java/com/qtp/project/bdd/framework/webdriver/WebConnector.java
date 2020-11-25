@@ -3,9 +3,7 @@ package com.qtp.project.bdd.framework.webdriver;
 import io.cucumber.java.Scenario;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -54,7 +52,7 @@ public class WebConnector {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
         }
-        driver.manage().window().setSize(new Dimension(1260, 1545));
+        driver.manage().window().setSize(new Dimension(1024, 768));
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     }
 
@@ -78,7 +76,9 @@ public class WebConnector {
             //Code to take full page screenshot
             ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
             scenario.log("URL - " + driver.getCurrentUrl());
+           // Shutterbug.shootPage(driver).withThumbnail(0.4).save();
             PageSnapshot snapshot = Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS, true);
+            snapshot.withThumbnail(2.0);
             ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,0)");
 
             try {
@@ -88,6 +88,10 @@ public class WebConnector {
                 e.printStackTrace();
             }
             byte[] source = imageStream.toByteArray();
+
+
+//            final byte[] source = ((TakesScreenshot) driver)
+//                    .getScreenshotAs(OutputType.BYTES);
             scenario.attach(source, "image/png", scenario.getName());
         }
     }

@@ -9,6 +9,11 @@ before_install:
   - curl "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
   - unzip chromedriver_linux64.zip -d ~/bin
 script:
-  - mvn test -Dcucumber.filter.tags=@reg or @axe or @cctv
+  - mvn verify -Dcucumber.filter.tags=@reg
 #script:
 # - mvn test -Dbase.url=https://www.crowncommercial.gov.uk/ -Dcucumber.filter.tags=@axe
+
+cron:
+  - branch: main
+      interval: daily
+      options: not if last 1h

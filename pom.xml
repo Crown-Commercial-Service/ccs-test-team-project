@@ -24,7 +24,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>6.7.0</version>
+            <version>6.5.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -37,10 +37,16 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>de.monochromata.cucumber</groupId>-->
+<!--            <artifactId>reporting-plugin</artifactId>-->
+<!--            <version>4.0.84</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
         <dependency>
-            <groupId>de.monochromata.cucumber</groupId>
-            <artifactId>reporting-plugin</artifactId>
-            <version>4.0.84</version>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>5.4.0</version>
         </dependency>
         <dependency>
             <groupId>com.deque</groupId>
@@ -63,6 +69,13 @@
             <artifactId>cucumber-junit</artifactId>
             <version>6.8.0</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-jvm</artifactId>
+            <version>6.5.0</version>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
