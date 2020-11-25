@@ -1,6 +1,7 @@
 # Project exclude paths
 target/
 Reports/
+Screenshots/
 
 ### IntelliJ IDEA ###
 .idea
