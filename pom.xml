@@ -46,7 +46,7 @@
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
-            <version>5.4.0</version>
+            <version>5.8.0</version>
         </dependency>
         <dependency>
             <groupId>com.deque</groupId>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.0</version>
+            <version>3.14.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
